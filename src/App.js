@@ -8,15 +8,22 @@ class App extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      showModal:true
+      showModal:true,
+      bookmarks:[]
     }
+  }
+
+  addbookmark = (bookmark) => {
+    this.setState(state => ({
+      bookmarks: [...state.bookmarks, bookmark]
+    }))
   }
 
   render () {
     return (
       <div>
         <Header />
-        <Main />
+        <Main bookmarks={this.state.bookmarks}/>
       </div>
     )
   }

@@ -5,14 +5,13 @@ class Cards extends React.Component {
     render () {
         return (
             <Card style={{ width: 'auto' }}>
-  <Card.Img variant="top" src="holder.js/100px180" />
+  <Card.Img variant="top" src={this.props.bookmark.image}  />
   <Card.Body>
-    <Card.Title>Card Title</Card.Title>
+    <Card.Title>{this.props.bookmark.title}</Card.Title>
     <Card.Text>
-      Some quick example text to build on the card title and make up the bulk of
-      the card's content.
+    {this.props.bookmark.description}
     </Card.Text>
-    <Button variant="primary">Go somewhere</Button>
+    <Button  href={this.props.bookmark.url}variant="primary">visit website</Button>
   </Card.Body>
 </Card>
         )
