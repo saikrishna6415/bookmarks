@@ -11,6 +11,8 @@ class App extends React.Component {
       showModal:true,
       bookmarks:[]
     }
+    this.addbookmark = this.addbookmark.bind(this);
+
   }
 
   addbookmark = (bookmark) => {
@@ -22,7 +24,7 @@ class App extends React.Component {
   render () {
     return (
       <div>
-        <Header />
+        <Header addbookmark={this.addbookmark} />
         <Main bookmarks={this.state.bookmarks}/>
       </div>
     )

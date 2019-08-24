@@ -1,5 +1,5 @@
 import React from 'react'
-import {Card,Button} from 'react-bootstrap'
+import {Card} from 'react-bootstrap'
 
 class Preview extends React.Component {
     render () {
@@ -14,9 +14,7 @@ class Preview extends React.Component {
                   <Card.Text>
                   {this.props.other.description}
                   </Card.Text>
-                  
-                  <Button href={this.props.other.url}variant="primary">visit website</Button>
-                </Card.Body>
+                  </Card.Body>
               </Card>
                 :
                 <Card.Footer>{this.props.status}</Card.Footer>

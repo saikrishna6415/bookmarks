@@ -4,11 +4,11 @@ import Bookmarks from './Bookmarks'
 
 class Main extends React.Component {
     render () {
-        const bookmark_cards = this.props.bookmarks.map((bookmark, i) => <Bookmarks key={i} bookmark={bookmark}/>)
+        const cards = this.props.bookmarks.map((bookmark, i) => <Bookmarks key={i} bookmark={bookmark}/>)
 
         return (
                 <div><CardColumns>
-                        {bookmark_cards}
+                        {cards}
                     </CardColumns>>
                 </div>
         )

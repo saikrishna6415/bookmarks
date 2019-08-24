@@ -17,6 +17,8 @@ class Header extends React.Component {
       fetched: false,
       status: ''
   }
+
+  
 }
 
 onChange = event => {
@@ -31,7 +33,7 @@ bookmarkpreview = (event) => {
   event.preventDefault()
   this.setState({
       Preview: true,
-      status: 'loading preview........'
+      status: 'loading preview...'
   })
   var url = {
       "urlgot": this.state.url
@@ -46,18 +48,21 @@ bookmarkpreview = (event) => {
           }
           console.log(res.data.other)
       })
-      .catch(err => { this.setState({ status: "oops: cant connect to server" }) })
+      .catch(err => { this.setState({ status: "server error" }) })
 }
 
 addnewbookmark = () => {
-  const new_bookmark = {
-      url: this.state.url,
+  const newbookmark = {
+      url: this.state.apiResponse.url,
       icon: this.state.apiResponse.icon,
       title: this.state.apiResponse.title,
       description: this.state.apiResponse.description
   }
-  console.log(new_bookmark)
-  this.props.addookmark(new_bookmark)
+  console.log(newbookmark)
+ this.props.addbookmark(newbookmark)
+  this.setState({
+    showModal:false
+  })
 }
 
     close = () => {
@@ -75,11 +80,9 @@ addnewbookmark = () => {
     return (
       <div>
       <Navbar className="bg-light justify-content-between">
-      <Image src={logo} onClick={this.open}style={{width:"200px"}} fluid />
-
-  <Image src={plus} onClick={this.open}style={{width:"50px",height:"50px"}} className=" mr-sm-2"rounded />
-
-</Navbar>
+          <Image src={logo} style={{width:"200px"}} fluid />
+          <Image src={plus} onClick={this.open}style={{width:"50px",height:"50px"}} className=" mr-sm-2"rounded />
+      </Navbar>
         <div className="modal-example">
         <Modal
           onHide={this.close}
